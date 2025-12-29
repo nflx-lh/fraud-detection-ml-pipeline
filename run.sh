@@ -1,0 +1,1 @@
+echo hello this is from the bash script

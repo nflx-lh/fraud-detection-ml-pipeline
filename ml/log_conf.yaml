@@ -1,0 +1,66 @@
+# track the person who ran this pipeline
+name: Wayne 
+
+dataloader_config:
+  # choose the training range, the range is from the start to the present day
+  start_date: "2019-01-01"
+
+  # gold feature dir
+  gold_feature_dir: datamart/gold/feature_store
+
+  # gold label dir
+  gold_label_dir: datamart/gold/label_store
+
+preprocessor_config:
+  # SMOTE toggler
+  use_smote: True
+
+  # how many oot splits from the most recent data
+  oot_splits: 3
+
+  # how many days per split, days because we are using daily data
+  oot_period: 30
+
+  # features to keep (NEED TO INCLUDE LABEL)
+  columns_to_keep:
+    - is_fraud
+    - amount
+    - use_chip
+    # - merchant_city
+    - merchant_state
+    # - zip 
+    - mcc
+    - errors
+    - has_chip
+    - num_credit_cards
+    - card_brand
+    - card_type
+    - num_cards_issued
+    - credit_limit
+    - year_pin_last_changed
+    - acct_opened_months
+    - yrs_since_pin_changed
+    - per_capita_income
+    - credit_score
+    - yearly_income
+
+model_config:
+  # experiment name for mlflow
+  experiment_name: "logistic"
+
+  run_name: "first"
+
+  # name of model
+  model_name: "logistic" # mlp, xgboost, or logistic
+
+  # number of trials for optuna
+  n_trials: 10
+
+  # model path if just loading model, not training
+  model_path: ""
+
+
+
+
+
+

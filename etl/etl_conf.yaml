@@ -1,0 +1,82 @@
+# track the person who ran this pipeline
+name: Wayne
+
+# dates have to be in quotes becuse pyyaml converts them into datetime objects automatically
+# start_date: "2010-01-01"
+start_date: "2018-01-01"
+end_date: "2019-10-01"
+
+bronze:
+  - partition_name: transactions
+    input_path: data/transactions_data.csv
+    output_path: datamart/bronze/transactions/
+    process_name: process_transactions
+
+  - partition_name: cards
+    input_path: data/cards_data.csv
+    output_path: datamart/bronze/cards/
+    process_name: process_cards
+
+  - partition_name: users
+    input_path: data/users_data.csv
+    output_path: datamart/bronze/users/
+    process_name: process_users
+
+  - partition_name: mcc
+    input_path: data/mcc_codes.json
+    output_path: datamart/bronze/mcc/
+    process_name: process_mcc
+
+  - partition_name: labels
+    input_path: data/train_fraud_labels.json
+    output_path: datamart/bronze/labels/
+    process_name: process_labels
+
+silver:
+  - partition_name: cards
+    input_path: datamart/bronze/cards/
+    output_path: datamart/silver/cards/
+    process_name: process_cards_data
+
+  - partition_name: users
+    input_path: datamart/bronze/users/
+    output_path: datamart/silver/users/
+    process_name: process_users_data
+
+  - partition_name: labels
+    input_path: datamart/bronze/labels/
+    output_path: datamart/silver/labels/
+    process_name: process_labels_data
+
+  - partition_name: mcc
+    input_path: datamart/bronze/mcc/
+    output_path: datamart/silver/mcc/
+    process_name: process_mcc_data
+
+  - partition_name: transactions
+    input_path: datamart/bronze/transactions/
+    output_path: datamart/silver/transactions/
+    process_name: process_transactions_data
+
+gold:
+  - partition_name: labels
+    input_path: datamart/silver/labels/
+    output_path: datamart/gold/label_store/
+    process_name: process_label_store
+
+  - partition_name: features
+    input_path:
+    output_path: datamart/gold/feature_store/
+    process_name: process_feature_store
+
+online_feature:
+  - process_name: process_online_feature_store
+    input_path:
+      card_feature_store: datamart/silver/cards/silver_cards.parquet
+      user_feature_store: datamart/silver/users/silver_users.parquet
+    output_redis:
+      host: redis
+      port: 6379
+      db: 0
+
+

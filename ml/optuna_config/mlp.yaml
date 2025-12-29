@@ -1,0 +1,37 @@
+optuna_config:
+  tunable_params:
+    hidden_layer_sizes:
+      type: categorical
+      choices: [(50,), (100,), (100, 50), (50, 50), (100, 100)]
+
+    activation:
+      type: categorical
+      choices: ['identity', 'logistic', 'tanh', 'relu']
+
+    solver:
+      type: categorical
+      choices: ['adam', 'sgd', 'lbfgs']
+
+    alpha:
+      type: float
+      low: 1e-6
+      high: 1e-1
+      log: true
+
+    learning_rate_init:
+      type: float
+      low: 1e-4
+      high: 1e-1
+      log: true
+
+    learning_rate:
+      type: categorical
+      choices: ['constant', 'invscaling', 'adaptive']
+
+    max_iter:
+      type: int
+      low: 200
+      high: 1000
+
+  static_params:
+    random_state: 42

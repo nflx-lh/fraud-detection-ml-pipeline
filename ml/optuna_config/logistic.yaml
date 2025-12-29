@@ -1,0 +1,23 @@
+optuna_config:
+  tunable_params:
+    C:
+      type: float
+      low: 1e-4
+      high: 100.0
+      log: true
+
+    penalty:
+      type: categorical
+      choices: ['l1', 'l2', 'none']
+
+    solver:
+      type: categorical
+      choices: ['liblinear', 'saga', 'lbfgs', 'newton-cg', 'sag']
+
+    max_iter:
+      type: int
+      low: 100
+      high: 1000
+
+  static_params:
+    random_state: 42

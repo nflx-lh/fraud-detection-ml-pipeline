@@ -1,0 +1,28 @@
+{
+  "card_transactions": [
+    {
+    "transaction_id": "9876543210",
+    "card_number": "4956965974959986",
+    "transaction_datetime": "2015-06-01 00:00:00",
+    "amount": 40.730000,
+    "use_chip": "Chip Transaction",
+    "merchant_city": "north oxford",
+    "merchant_state": "ma",
+    "zip": "1537",
+    "mcc": "7538",
+    "errors": "no_error"
+    },
+    {
+    "transaction_id": "1234567890",
+    "card_number": "4848774820047542",
+    "transaction_datetime": "2025-06-01 00:00:00",
+    "amount": 125.239998,
+    "use_chip": "Chip Transaction",
+    "merchant_city": "rome",
+    "merchant_state": "italy",
+    "zip": "0",
+    "mcc": "5311",
+    "errors": "no_error"
+}
+  ]
+}

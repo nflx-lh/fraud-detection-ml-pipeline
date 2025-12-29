@@ -1,0 +1,34 @@
+# track the person who ran this pipeline
+name: Wayne 
+
+monitoring_config:
+  numerical_features:
+    - amount
+    - num_credit_cards
+    - num_cards_issued
+    - credit_limit
+    - acct_opened_months
+    - yrs_since_pin_changed
+    - per_capita_income
+    - credit_score
+    - yearly_income
+
+  categorical_features:
+    - is_fraud
+    - use_chip
+    - errors
+    - has_chip
+    - card_brand
+    - card_type
+
+  reference_data_path: monitoring/reference_data/xgboost_first.csv.csv
+
+  inference_data_path: monitoring/inference_data/inference_data.csv
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+__pycache__/
+.ipynb_checkpoints/
+
+.env
+*.log
+
+# data / outputs
+data/
+datamart/
+*.parquet
+
+# airflow / mlflow runtime outputs
+airflow/logs/
+mlruns/
+
+# monitoring outputs
+monitoring/inference_data/
+monitoring/reference_data/
+
+# model artifacts
+ml/scripts/artifacts/
+inference/mlflow_model/
+*.pkl
+
+# local workspace
+workspace/

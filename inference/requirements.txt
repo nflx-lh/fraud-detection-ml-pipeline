@@ -1,0 +1,11 @@
+mlflow
+fastapi
+redis
+cloudpickle
+numpy
+pandas
+psutil
+scikit-learn==1.6.1
+scipy
+evidently==0.6.7
+xgboost
