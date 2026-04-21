@@ -1,5 +1,3 @@
-# track the person who ran this pipeline
-name: Wayne 
 
 monitoring_config:
   numerical_features:

@@ -1,5 +1,3 @@
-# track the person who ran this pipeline
-name: Wayne
 
 # dates have to be in quotes becuse pyyaml converts them into datetime objects automatically
 # start_date: "2010-01-01"

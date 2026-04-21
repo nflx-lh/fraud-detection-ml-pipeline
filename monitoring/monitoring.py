@@ -83,7 +83,6 @@ class Monitoring:
     # creates a project under the current workspace
     def create_project(self):
         project = self.ws.create_project(self.project_name)
-        project.description = "CS611 Demo Sample Project"
         project.save()
 
         return project

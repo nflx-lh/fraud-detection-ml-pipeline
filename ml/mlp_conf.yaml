@@ -1,5 +1,3 @@
-# track the person who ran this pipeline
-name: Wayne 
 
 dataloader_config:
   # choose the training range, the range is from the start to the present day
