@@ -483,20 +483,14 @@ Built in collaboration with [@Siying](https://github.com/yeosiying), [@Alvin](ht
 
 ## Design and Delivery Highlights
 
-**Business problem framing before technical solution**
-The system is designed around a financial risk problem — not a dataset or algorithm. It works through stakeholder consequences, operational tradeoff priorities, and metric selection before arriving at implementation choices, which is relevant framing for consulting and business-facing AI roles.
+**Business problem framing before technical solution:** The system is built around a financial risk problem — not a dataset or algorithm — and works backward from stakeholder impact, operational tradeoffs, and decision requirements.
 
-**Structured pipeline thinking across the full ML lifecycle**
-The architecture covers data ingestion, cleaning, feature engineering, offline and online feature stores, model training, time-aware evaluation, experiment tracking, real-time serving, and post-deployment monitoring. Each layer has a clear role and defined interfaces with adjacent components.
+**Structured pipeline thinking across the ML lifecycle:** The architecture covers data ingestion, feature engineering, offline and online feature stores, model training, time-aware evaluation, real-time serving, and post-deployment monitoring, with clear boundaries between each layer.
 
-**Evaluation rigour tied to operational tradeoffs**
-OOT validation over cross-validation, F1 as the tuning objective rather than accuracy, SMOTE applied post-split, and model selection based on temporal stability rather than peak test performance all reflect how ML systems need to be assessed for real-world reliability.
+**Evaluation rigour tied to operational tradeoffs:** OOT validation, F1-based optimisation, SMOTE applied post-split, and model selection based on temporal stability rather than peak test performance reflect a production-oriented evaluation mindset.
 
-**Monitoring and operational awareness**
-PSI-based feature drift monitoring, a reference baseline anchored to the training distribution, timestamped prediction logging, and a designed phased deployment roadmap reflect that ML systems require ongoing oversight after deployment.
+**Monitoring and operational awareness:** PSI-based drift detection, reference-baseline comparison, timestamped prediction logging, and a designed phased deployment roadmap show that the system was built with post-deployment oversight in mind.
 
-**Domain-aware design decisions**
-Feature drift as a monitoring proxy (because fraud labels are delayed by chargeback cycles), PSI as the drift statistic (readable by auditors and appropriate for imbalanced data), and asymmetric class weight encoding reflect understanding of the operational context beyond the technical toolkit.
+**Domain-aware design decisions:** Feature drift is used as an early warning signal because confirmed fraud labels arrive late, while class weighting and imbalance handling reflect the asymmetric cost of fraud misses versus false alarms.
 
-**Technology breadth**
-The stack spans data engineering (PySpark, Medallion architecture), MLOps (MLflow, Optuna), real-time serving (FastAPI, Redis), monitoring (EvidentlyAI), and orchestration (Airflow 3.0) — tools relevant to data platform, analytics engineering, and AI consulting work.
+**Technology breadth:** The stack spans data engineering, MLOps, real-time inference, monitoring, and orchestration — demonstrating end-to-end applied ML system design rather than isolated modelling work.
