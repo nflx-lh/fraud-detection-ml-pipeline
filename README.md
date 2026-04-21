@@ -220,13 +220,20 @@ F1 score — the harmonic mean of precision and recall — was selected as the p
 
 Due to extreme class imbalance, ROC performance appears strong while Precision-Recall performance reflects the practical challenge of maintaining precision at higher recall levels.
 
-<p align="center">
-  <img src="ml/scripts/Test_pr_curve.png" alt="Precision-Recall Curve" width="420"/>
-  <img src="ml/scripts/Test_roc_curve.png" alt="ROC Curve" width="420"/>
-</p>
-<p align="center">
-  <em>Precision-Recall and ROC curves from a completed training run.</em>
-</p>
+<table align="center" style="border-collapse: collapse;">
+  <tr>
+    <td align="center" style="padding: 0 0px;">
+      <img src="ml/scripts/Test_pr_curve.png" alt="Precision-Recall Curve" width="360"><br>
+      <sub>Precision-Recall Curve</sub>
+    </td>
+    <td align="center" style="padding: 0 0px;">
+      <img src="ml/scripts/Test_roc_curve.png" alt="ROC Curve" width="360"><br>
+      <sub>ROC Curve</sub>
+    </td>
+  </tr>
+</table>
+
+<p align="center"><i>Precision-Recall and ROC curves from a completed training run.</i></p>
 
 ### How class imbalance is handled
 
@@ -254,10 +261,11 @@ Three models were evaluated. The key differentiator was temporal stability, not 
 XGBoost was selected as the champion model not only because of smoother temporal degradation, but also because it achieved the stronger reported final OOT F1 score (93% vs. 87% for Logistic Regression).
 
 <p align="center">
-  <img src="assets/model_performance_over_time.png" alt="Model performance over time across train, test, and OOT windows" width="950"/>
+  <img src="assets/model_performance_over_time.png" alt="Model performance over time across train, test, and OOT windows" width="720"/>
 </p>
 <p align="center">
-  <em>Model performance across train, test, and sequential out-of-time windows. XGBoost showed smoother degradation under temporal shift and was selected as the deployment candidate.</em>
+  <em>Model performance across train, test, and sequential out-of-time windows.</em><br>
+  <em>XGBoost showed smoother degradation under temporal shift and was selected as the deployment candidate.</em>
 </p>
 
 ### Monitoring thresholds and alerting
@@ -265,10 +273,10 @@ XGBoost was selected as the champion model not only because of smoother temporal
 Since confirmed fraud labels typically arrive with significant delay due to chargeback investigation cycles, the system uses **feature drift as a leading indicator** of potential concept drift. Dataset drift is flagged when a material proportion of feature columns show significant distribution shift. Once ground-truth labels become available, accuracy-based monitoring provides a second alerting layer with a lead-time buffer before the business-critical threshold.
 
 <p align="center">
-  <img src="assets/EvidentlyAI.png" alt="EvidentlyAI drift monitoring dashboard" width="950"/>
+  <img src="assets/EvidentlyAI.png" alt="EvidentlyAI drift monitoring dashboard" width="720"/>
 </p>
 <p align="center">
-  <em>Example EvidentlyAI dashboard showing dataset drift detection between reference training data and live inference data.</em>
+  <em>EvidentlyAI dashboard showing dataset drift detection between reference training data and live inference data.</em>
 </p>
 
 ---
@@ -315,7 +323,7 @@ Since confirmed fraud labels typically arrive with significant delay due to char
 - `example_inference_input.txt` — example POST payload for the inference endpoint
 
 <p align="center">
-  <img src="assets/FastAPI.png" alt="FastAPI predict endpoint for transaction scoring" width="950"/>
+  <img src="assets/FastAPI.png" alt="FastAPI predict endpoint for transaction scoring" width="720"/>
 </p>
 <p align="center">
   <em>FastAPI <code>/predict</code> endpoint for scoring transaction batches through the inference pipeline.</em>
@@ -329,7 +337,7 @@ Since confirmed fraud labels typically arrive with significant delay due to char
 - `airflow/dags/` — 6 Airflow DAGs covering data processing, ML training, inference, online feature population, and monitoring pipelines, with email alerting
 
 <p align="center">
-  <img src="assets/airflow_dag.png" alt="Airflow DAG for ETL to model training workflow" width="950"/>
+  <img src="assets/airflow_dag.png" alt="Airflow DAG for ETL to model training workflow" width="720"/>
 </p>
 <p align="center">
   <em>Airflow DAG execution for the ETL-to-training workflow, from Bronze / Silver / Gold processing to parallel model training.</em>
@@ -351,7 +359,7 @@ fraud-detection-ml-pipeline/
 │   ├── config/                    # Airflow configuration
 │   └── dags/                      # DAG definitions (ETL, ML, inference, monitoring)
 │
-├── assets/                        # Architecture diagrams
+├── assets/                        # README visuals: architecture, evaluation, monitoring, and orchestration screenshots
 │
 ├── etl/
 │   ├── notebooks/                 # EDA and data exploration notebooks
